@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Email Tracker",
+    "version": "1.0.0",
+    "description": "Email Tracker Extension - Streak Alternative",
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "https://mail.google.com/*",
+        "http://localhost:3000/*"
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "src/content/index.tsx"
+            ],
+            "matches": [
+                "https://mail.google.com/*"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/*"
+            ],
+            "matches": [
+                "https://mail.google.com/*"
+            ]
+        }
+    ]
+}

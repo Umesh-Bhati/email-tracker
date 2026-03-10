@@ -1,0 +1,27 @@
+# Email Tracker App Development
+
+- [ ] **Phase 1: Planning & Architecture (Current)**
+  - [x] Design High-Level Architecture (Client, Server, Database)
+  - [x] Design Low-Level Architecture (Schema, API Endpoints)
+  - [/] Evaluate cost-effective tech stack
+  - [ ] Get User Approval on System Design
+- [ ] **Phase 2: Project Setup**
+  - [x] Initialize Chrome Extension project (React + Vite + CRXjs)
+  - [x] Initialize Backend Service (Cloudflare Workers / Next.js)
+  - [x] Set up Database (Postgres/Supabase or Turso)
+- [x] **Phase 3: Backend Implementation (Core & CRM)**
+  - [x] Implement Tracking Pixel Endpoint (`/t.gif`)
+  - [x] Implement Link Click Endpoint (`/c`)
+  - [x] Implement API for Pipelines & Deals CRUD (CRM Features)
+  - [x] Implement API for Extension (CRUD for tracked emails and logs)
+- [ ] **Phase 4: Chrome Extension Implementation (UI & CRM Integration)**
+  - [/] Gmail UI Integration (inject Tracking toggle button in compose window)
+  - [ ] Intercept email send to inject tracking pixel
+  - [ ] Gmail UI Integration (inject Pipeline/Deal status next to email threads)
+  - [ ] **Inbox Triage UI:** Inject custom Filters/Sorting into Gmail (e.g., "Sort by Pipeline Stage", "Filter by Tracked/Opened")
+  - [ ] **Snippets UI:** Inject an "Insert Template" button into the Gmail compose box
+  - [ ] Sidebar/Popup UI to show tracking history (Opens/Clicks)
+  - [ ] Mail Merge UI (Mass personalized sending)
+- [ ] **Phase 5: Verification & Polish**
+  - [ ] End-to-end testing of email opens and notification popups
+  - [ ] Optimize payload and latency
