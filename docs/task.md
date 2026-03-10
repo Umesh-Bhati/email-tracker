@@ -15,8 +15,8 @@
   - [x] Implement API for Pipelines & Deals CRUD (CRM Features)
   - [x] Implement API for Extension (CRUD for tracked emails and logs)
 - [ ] **Phase 4: Chrome Extension Implementation (UI & CRM Integration)**
-  - [/] Gmail UI Integration (inject Tracking toggle button in compose window)
-  - [ ] Intercept email send to inject tracking pixel
+  - [x] Gmail UI Integration (inject Tracking toggle button in compose window)
+  - [x] Intercept email send to inject tracking pixel
   - [ ] Gmail UI Integration (inject Pipeline/Deal status next to email threads)
   - [ ] **Inbox Triage UI:** Inject custom Filters/Sorting into Gmail (e.g., "Sort by Pipeline Stage", "Filter by Tracked/Opened")
   - [ ] **Snippets UI:** Inject an "Insert Template" button into the Gmail compose box

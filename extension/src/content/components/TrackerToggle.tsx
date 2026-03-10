@@ -3,6 +3,21 @@ import React, { useState } from 'react';
 export const TrackerToggle: React.FC = () => {
     const [enabled, setEnabled] = useState(true);
 
+    React.useEffect(() => {
+        // Load initial state
+        chrome.storage.local.get(['trackingEnabled'], (result: Record<string, any>) => {
+            if (result.trackingEnabled !== undefined) {
+                setEnabled(result.trackingEnabled);
+            }
+        });
+    }, []);
+
+    const handleToggle = () => {
+        const newState = !enabled;
+        setEnabled(newState);
+        chrome.storage.local.set({ trackingEnabled: newState });
+    };
+
     return (
         <div
             style={{
@@ -21,7 +36,7 @@ export const TrackerToggle: React.FC = () => {
                 userSelect: 'none',
                 height: '24px'
             }}
-            onClick={() => setEnabled(!enabled)}
+            onClick={handleToggle}
         >
             <div style={{
                 width: '10px',
