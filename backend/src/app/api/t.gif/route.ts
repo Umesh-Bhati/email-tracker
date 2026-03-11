@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
 
     // 2. Extract Request Headers for Analytics
     // Vercel/Next.js routes the request through a proxy, so we check x-forwarded-for first
-    const ipAddress = request.headers.get('x-forwarded-for') || request.ip || 'Unknown';
+    const ipAddress = request.headers.get('x-forwarded-for') || (request as any).ip || 'Unknown';
     const userAgent = request.headers.get('user-agent') || 'Unknown';
 
     try {
