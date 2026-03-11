@@ -76,9 +76,8 @@ async function handleEmailSent(composeWin: HTMLElement) {
     const emailId = crypto.randomUUID();
 
     // 3. Inject Tracking Pixel (1x1 transparent GIF)
-    // IMPORTANT: Our backend URL needs to be dynamic or configured.
-    // We'll use localhost:3000 for development.
-    const trackingPixelUrl = `http://localhost:3000/api/t.gif?email_id=${emailId}`;
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+    const trackingPixelUrl = `${apiUrl}/api/t.gif?email_id=${emailId}`;
     const pixelImg = `<img src="${trackingPixelUrl}" width="1" height="1" style="display:none !important;" />`;
 
     // Append to body (Gmails body is contenteditable)
@@ -88,7 +87,8 @@ async function handleEmailSent(composeWin: HTMLElement) {
     // In a real app, you'd get the user_id from auth.
     // For now, we'll use a hardcoded dev user_id.
     try {
-        await fetch('http://localhost:3000/api/emails', {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        await fetch(`${apiUrl}/api/emails`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
